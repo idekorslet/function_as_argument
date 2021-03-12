@@ -37,7 +37,7 @@ void getButtonState(){
     if (!led_on) digitalWrite(led_output, btn_state); 
 }
 
-void blinkLed(bool on){
-    //led_on = !led_on;
-    digitalWrite(led_output, on);         
+void blinkLed(){
+    led_on = !led_on;
+    digitalWrite(led_output, led_on);         
 }
