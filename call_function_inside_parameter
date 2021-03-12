@@ -33,7 +33,8 @@ void doSomethingWhileDelay(void function_name(), void function_name2(), int dela
 }
 
 void getButtonState(){
-    btn_state = digitalRead(btn_input);    
+    btn_state = digitalRead(btn_input);   
+    // jika led sedang mati maka nyalakan led
     if (!led_on) digitalWrite(led_output, btn_state); 
 }
 
