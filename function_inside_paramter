@@ -1,0 +1,43 @@
+unsigned long current_time = 0;
+
+bool led_on, next = false;
+bool btn_state = false;
+
+const byte btn_input = 7;
+const byte led_output = 13;
+
+void setup() {
+  pinMode(led_output, OUTPUT);
+  pinMode(btn_input, INPUT);
+}
+
+void loop() {
+    next = false;
+    doSomethingWhileDelay(blinkLed, getButtonState, 2000);
+}
+
+void doSomethingWhileDelay(void function_name(), void function_name2(), int delay_time){
+    current_time = millis();
+    while (next == false) {
+        if (millis() - current_time < delay_time){
+            // jika parameter "funtion_name2" != 0, maka eksekusi function_name2, jika = 0, maka delay tanpa melakukan sesuatu
+            if (function_name2 != 0) {
+                function_name2();  
+            }    
+        } 
+        else {          
+            function_name();  
+            next = true;            
+        }
+    }         
+}
+
+void getButtonState(){
+    btn_state = digitalRead(btn_input);    
+    if (!led_on) digitalWrite(led_output, btn_state); 
+}
+
+void blinkLed(bool on){
+    //led_on = !led_on;
+    digitalWrite(led_output, on);         
+}
