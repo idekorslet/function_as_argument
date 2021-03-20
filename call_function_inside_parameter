@@ -26,7 +26,7 @@ void doSomethingWhileDelay(void function_name(), void function_name2(), int dela
             }    
         } 
         else {          
-            function_name();  
+            function_name();  // function ini akan selalu dieksekusi sekali
             next = true;            
         }
     }         
